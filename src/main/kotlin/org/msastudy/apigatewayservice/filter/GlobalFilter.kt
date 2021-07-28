@@ -28,7 +28,6 @@ class GlobalFilter : AbstractGatewayFilterFactory<GlobalFilter.Config>(Config::c
 
             if (config.preLogger) {
                 logger.info("Global Filter Start: request id -> {}", request.id)
-                println(request.id)
             }
 
             chain.filter(exchange).then<Void?>(Mono.fromRunnable {
@@ -36,7 +35,6 @@ class GlobalFilter : AbstractGatewayFilterFactory<GlobalFilter.Config>(Config::c
                     "Global Filter End: response code -> {}",
                     response.statusCode
                 )
-                println(response.statusCode)
             })
         }
     }
