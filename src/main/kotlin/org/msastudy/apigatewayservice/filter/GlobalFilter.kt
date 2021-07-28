@@ -19,7 +19,6 @@ class GlobalFilter : AbstractGatewayFilterFactory<GlobalFilter.Config>(Config::c
     )
 
     override fun apply(config: Config): GatewayFilter {
-        logger.info("apply used!")
         return GatewayFilter { exchange: ServerWebExchange, chain: GatewayFilterChain ->
             val request = exchange.request
             val response = exchange.response
